@@ -1,0 +1,129 @@
+//
+//  GameViewController.swift
+//  Mind Match Game
+//
+//  Created by Drew Brokamp on 2/11/19.
+//  Copyright © 2019 Drew Brokamp. All rights reserved.
+//
+
+import UIKit
+import SpriteKit
+import GameKit
+import GoogleMobileAds
+
+class GameViewController: UIViewController, GKGameCenterControllerDelegate, GADInterstitialDelegate {
+    
+    var gcEnabled = Bool() // Check if the user has Game Center enabled
+    var gcDefaultLeaderBoard = String() // Check the default leaderboardID
+    let LEADERBOARD_ID = "memorymatch.highscore"
+    
+    var interstitial: GADInterstitial!
+    var bannerViewTop: GADBannerView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        Create and Load adMob Ads
+        interstitial = createAndLoadInterstitial()
+        
+        //Create notifcations for ads
+        NotificationCenter.default.addObserver(self, selector: #selector(showInterstitial), name: .showInterstitialAd, object: nil)
+
+        
+        //Check for game center
+        authenticateLocalPlayer()
+        
+        if let view = self.view as! SKView? {
+            
+            // Load the SKScene from 'GameScene.sks'
+            let scene = GameScene(size: view.bounds.size)
+            
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .aspectFill
+            
+            // Present the scene
+            view.presentScene(scene)
+            
+            
+            view.ignoresSiblingOrder = true
+            view.allowsTransparency = true
+//            view.showsFPS = true
+//            view.showsNodeCount = true
+            view.backgroundColor = .clear
+        }
+        
+        
+
+    }
+    
+    //MARK: Interstitial Ads
+    func createAndLoadInterstitial() -> GADInterstitial {
+        
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4493503969826620/7164335697")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+        
+    }
+    
+    @objc func showInterstitial() {
+    
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+    
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+      interstitial = createAndLoadInterstitial()
+    }
+    
+    //MARK: Game Center
+    func authenticateLocalPlayer() {
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.local
+        
+        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
+            if((ViewController) != nil) {
+                // 1. Show login if player is not logged in
+                self.present(ViewController!, animated: true, completion: nil)
+            } else if (localPlayer.isAuthenticated) {
+                // 2. Player is already authenticated & logged in, load game center
+                self.gcEnabled = true
+                
+                // Get the default leaderboard ID
+                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
+                    if error != nil { print(error ?? "nil")
+                    } else { self.gcDefaultLeaderBoard = leaderboardIdentifer! }
+                })
+                
+            } else {
+                // 3. Game center is not enabled on the users device
+                self.gcEnabled = false
+                print("Local player could not be authenticated!")
+                print(error ?? "nil")
+            }
+        }
+    }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
+        } else {
+            return .all
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+}

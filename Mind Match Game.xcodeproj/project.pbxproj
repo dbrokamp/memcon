@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FC253DCC28FCDF81346DD3B /* Pods_Mind_Match_Game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */; };
+		66160DB7230AE6F6000327DC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66160DB6230AE6F6000327DC /* GameScene.swift */; };
+		66330E6C25508D8E009D39E4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E6B25508D8E009D39E4 /* Globals.swift */; };
+		66330E6F25508DAB009D39E4 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E6E25508DAB009D39E4 /* CardManager.swift */; };
+		66330E7325508DC0009D39E4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E7225508DC0009D39E4 /* GameManager.swift */; };
+		66330E9E25508E8C009D39E4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E9D25508E8C009D39E4 /* Card.swift */; };
+		66330EA125508E96009D39E4 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EA025508E96009D39E4 /* Button.swift */; };
+		66330EA425508E9C009D39E4 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EA325508E9C009D39E4 /* Label.swift */; };
+		66330EA725508EA5009D39E4 /* BottomHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EA625508EA5009D39E4 /* BottomHud.swift */; };
+		66330EAD25508EB8009D39E4 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EAC25508EB8009D39E4 /* Timer.swift */; };
+		66330EB225508EE4009D39E4 /* MenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EB125508EE4009D39E4 /* MenuState.swift */; };
+		66330EB525508EED009D39E4 /* SetupState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EB425508EED009D39E4 /* SetupState.swift */; };
+		66330EB825508EFC009D39E4 /* MemorizeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EB725508EFC009D39E4 /* MemorizeState.swift */; };
+		66330EBB25508F07009D39E4 /* MatchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EBA25508F07009D39E4 /* MatchState.swift */; };
+		66330EBE25508F1A009D39E4 /* LostLevelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EBD25508F1A009D39E4 /* LostLevelState.swift */; };
+		66330EC125508F32009D39E4 /* WonLevelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EC025508F32009D39E4 /* WonLevelState.swift */; };
+		66330EC825509041009D39E4 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330EC725509041009D39E4 /* GameCenterHelper.swift */; };
+		6641D598256DA6AE002FDBFD /* FlatUIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6641D597256DA6AE002FDBFD /* FlatUIColors.swift */; };
+		66536BA92211C19B00DCF245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66536BA82211C19B00DCF245 /* AppDelegate.swift */; };
+		66536BB12211C19B00DCF245 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66536BB02211C19B00DCF245 /* GameViewController.swift */; };
+		66536BB42211C19B00DCF245 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66536BB22211C19B00DCF245 /* Main.storyboard */; };
+		66536BB62211C19D00DCF245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66536BB52211C19D00DCF245 /* Assets.xcassets */; };
+		66536BB92211C19D00DCF245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66536BB72211C19D00DCF245 /* LaunchScreen.storyboard */; };
+		66536BC22211C1D700DCF245 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66536BC12211C1D700DCF245 /* GameKit.framework */; };
+		665CD5DA255AECD500FDBFF5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CD5D9255AECD500FDBFF5 /* Menu.swift */; };
+		665CD5DD255AED7000FDBFF5 /* HudBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665CD5DC255AED7000FDBFF5 /* HudBox.swift */; };
+		666F8900256C053800D6E092 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F88FF256C053800D6E092 /* Results.swift */; };
+		66A5105B256D7A9900DC0EF6 /* TopHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A5105A256D7A9900DC0EF6 /* TopHud.swift */; };
+		66B7C3812575579B0002C929 /* FirstRunHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7C3802575579B0002C929 /* FirstRunHud.swift */; };
+		66EA3D982549CCBC00BD7EB4 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66EA3D972549CCBC00BD7EB4 /* SF-Pro.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mind_Match_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Match Game.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game.debug.xcconfig"; sourceTree = "<group>"; };
+		66160DB6230AE6F6000327DC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		66330E6B25508D8E009D39E4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		66330E6E25508DAB009D39E4 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
+		66330E7225508DC0009D39E4 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		66330E9D25508E8C009D39E4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		66330EA025508E96009D39E4 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		66330EA325508E9C009D39E4 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		66330EA625508EA5009D39E4 /* BottomHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomHud.swift; sourceTree = "<group>"; };
+		66330EAC25508EB8009D39E4 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		66330EB125508EE4009D39E4 /* MenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuState.swift; sourceTree = "<group>"; };
+		66330EB425508EED009D39E4 /* SetupState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupState.swift; sourceTree = "<group>"; };
+		66330EB725508EFC009D39E4 /* MemorizeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeState.swift; sourceTree = "<group>"; };
+		66330EBA25508F07009D39E4 /* MatchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchState.swift; sourceTree = "<group>"; };
+		66330EBD25508F1A009D39E4 /* LostLevelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostLevelState.swift; sourceTree = "<group>"; };
+		66330EC025508F32009D39E4 /* WonLevelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WonLevelState.swift; sourceTree = "<group>"; };
+		66330EC725509041009D39E4 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
+		6641D597256DA6AE002FDBFD /* FlatUIColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatUIColors.swift; sourceTree = "<group>"; };
+		66536BA52211C19B00DCF245 /* Mind Match Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mind Match Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66536BA82211C19B00DCF245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66536BB02211C19B00DCF245 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		66536BB32211C19B00DCF245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66536BB52211C19D00DCF245 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66536BB82211C19D00DCF245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66536BBA2211C19D00DCF245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66536BC12211C1D700DCF245 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		665CD5D9255AECD500FDBFF5 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		665CD5DC255AED7000FDBFF5 /* HudBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudBox.swift; sourceTree = "<group>"; };
+		666F88FF256C053800D6E092 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		66A5105A256D7A9900DC0EF6 /* TopHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHud.swift; sourceTree = "<group>"; };
+		66B704A7247164C90060AA71 /* Mind Match Game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mind Match Game.entitlements"; sourceTree = "<group>"; };
+		66B7C3802575579B0002C929 /* FirstRunHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunHud.swift; sourceTree = "<group>"; };
+		66EA3D972549CCBC00BD7EB4 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		D7743824FCC53BF1FEBB317D /* Pods-Mind Match Game.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Match Game.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66536BA22211C19B00DCF245 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66536BC22211C1D700DCF245 /* GameKit.framework in Frameworks */,
+				1FC253DCC28FCDF81346DD3B /* Pods_Mind_Match_Game.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66330EAF25508ECD009D39E4 /* View Objects */ = {
+			isa = PBXGroup;
+			children = (
+				66330E9D25508E8C009D39E4 /* Card.swift */,
+				66330EAC25508EB8009D39E4 /* Timer.swift */,
+				66330EA025508E96009D39E4 /* Button.swift */,
+				66330EA325508E9C009D39E4 /* Label.swift */,
+				665CD5DC255AED7000FDBFF5 /* HudBox.swift */,
+			);
+			path = "View Objects";
+			sourceTree = "<group>";
+		};
+		66330EC325508F3B009D39E4 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				66330EB125508EE4009D39E4 /* MenuState.swift */,
+				66330EB425508EED009D39E4 /* SetupState.swift */,
+				66330EB725508EFC009D39E4 /* MemorizeState.swift */,
+				66330EBA25508F07009D39E4 /* MatchState.swift */,
+				66330EBD25508F1A009D39E4 /* LostLevelState.swift */,
+				66330EC025508F32009D39E4 /* WonLevelState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		6641D595256DA673002FDBFD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6641D597256DA6AE002FDBFD /* FlatUIColors.swift */,
+				66330E6B25508D8E009D39E4 /* Globals.swift */,
+				66330EC725509041009D39E4 /* GameCenterHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		66536B9C2211C19B00DCF245 = {
+			isa = PBXGroup;
+			children = (
+				66536BA62211C19B00DCF245 /* Products */,
+				66536BA72211C19B00DCF245 /* Mind Match Game */,
+				66536BC02211C1D700DCF245 /* Frameworks */,
+				ADF2E9773673EFDA3209C4AA /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		66536BA62211C19B00DCF245 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66536BA52211C19B00DCF245 /* Mind Match Game.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66536BA72211C19B00DCF245 /* Mind Match Game */ = {
+			isa = PBXGroup;
+			children = (
+				66EA3D972549CCBC00BD7EB4 /* SF-Pro.ttf */,
+				66B704A7247164C90060AA71 /* Mind Match Game.entitlements */,
+				66536BBA2211C19D00DCF245 /* Info.plist */,
+				66536BA82211C19B00DCF245 /* AppDelegate.swift */,
+				66536BB22211C19B00DCF245 /* Main.storyboard */,
+				66536BB72211C19D00DCF245 /* LaunchScreen.storyboard */,
+				66536BB52211C19D00DCF245 /* Assets.xcassets */,
+				66536BB02211C19B00DCF245 /* GameViewController.swift */,
+				66160DB6230AE6F6000327DC /* GameScene.swift */,
+				66B7C384257558270002C929 /* Managers */,
+				6641D595256DA673002FDBFD /* Helpers */,
+				66A51050256D796700DC0EF6 /* Huds */,
+				66330EAF25508ECD009D39E4 /* View Objects */,
+				66330EC325508F3B009D39E4 /* States */,
+			);
+			path = "Mind Match Game";
+			sourceTree = "<group>";
+		};
+		66536BC02211C1D700DCF245 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66536BC12211C1D700DCF245 /* GameKit.framework */,
+				2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66A51050256D796700DC0EF6 /* Huds */ = {
+			isa = PBXGroup;
+			children = (
+				66B7C3802575579B0002C929 /* FirstRunHud.swift */,
+				665CD5D9255AECD500FDBFF5 /* Menu.swift */,
+				666F88FF256C053800D6E092 /* Results.swift */,
+				66A5105A256D7A9900DC0EF6 /* TopHud.swift */,
+				66330EA625508EA5009D39E4 /* BottomHud.swift */,
+			);
+			path = Huds;
+			sourceTree = "<group>";
+		};
+		66B7C384257558270002C929 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				66330E7225508DC0009D39E4 /* GameManager.swift */,
+				66330E6E25508DAB009D39E4 /* CardManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		ADF2E9773673EFDA3209C4AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */,
+				D7743824FCC53BF1FEBB317D /* Pods-Mind Match Game.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66536BA42211C19B00DCF245 /* Mind Match Game */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66536BBD2211C19D00DCF245 /* Build configuration list for PBXNativeTarget "Mind Match Game" */;
+			buildPhases = (
+				3074E9C731D1F23D77734969 /* [CP] Check Pods Manifest.lock */,
+				66536BA12211C19B00DCF245 /* Sources */,
+				66536BA22211C19B00DCF245 /* Frameworks */,
+				66536BA32211C19B00DCF245 /* Resources */,
+				0F97214F78201E71693F470F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mind Match Game";
+			productName = "Mind Match Game";
+			productReference = 66536BA52211C19B00DCF245 /* Mind Match Game.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66536B9D2211C19B00DCF245 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1210;
+				ORGANIZATIONNAME = "Drew Brokamp";
+				TargetAttributes = {
+					66536BA42211C19B00DCF245 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 66536BA02211C19B00DCF245 /* Build configuration list for PBXProject "Mind Match Game" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66536B9C2211C19B00DCF245;
+			productRefGroup = 66536BA62211C19B00DCF245 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66536BA42211C19B00DCF245 /* Mind Match Game */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66536BA32211C19B00DCF245 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66536BB42211C19B00DCF245 /* Main.storyboard in Resources */,
+				66EA3D982549CCBC00BD7EB4 /* SF-Pro.ttf in Resources */,
+				66536BB62211C19D00DCF245 /* Assets.xcassets in Resources */,
+				66536BB92211C19D00DCF245 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F97214F78201E71693F470F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3074E9C731D1F23D77734969 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mind Match Game-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66536BA12211C19B00DCF245 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66330EB225508EE4009D39E4 /* MenuState.swift in Sources */,
+				66330EB825508EFC009D39E4 /* MemorizeState.swift in Sources */,
+				665CD5DD255AED7000FDBFF5 /* HudBox.swift in Sources */,
+				66330E6C25508D8E009D39E4 /* Globals.swift in Sources */,
+				66330E7325508DC0009D39E4 /* GameManager.swift in Sources */,
+				66330EB525508EED009D39E4 /* SetupState.swift in Sources */,
+				66330E9E25508E8C009D39E4 /* Card.swift in Sources */,
+				66330EAD25508EB8009D39E4 /* Timer.swift in Sources */,
+				66330EA125508E96009D39E4 /* Button.swift in Sources */,
+				6641D598256DA6AE002FDBFD /* FlatUIColors.swift in Sources */,
+				66B7C3812575579B0002C929 /* FirstRunHud.swift in Sources */,
+				66A5105B256D7A9900DC0EF6 /* TopHud.swift in Sources */,
+				66330EBE25508F1A009D39E4 /* LostLevelState.swift in Sources */,
+				66160DB7230AE6F6000327DC /* GameScene.swift in Sources */,
+				66330EBB25508F07009D39E4 /* MatchState.swift in Sources */,
+				66330EA725508EA5009D39E4 /* BottomHud.swift in Sources */,
+				66330EC825509041009D39E4 /* GameCenterHelper.swift in Sources */,
+				665CD5DA255AECD500FDBFF5 /* Menu.swift in Sources */,
+				66330EA425508E9C009D39E4 /* Label.swift in Sources */,
+				66330EC125508F32009D39E4 /* WonLevelState.swift in Sources */,
+				666F8900256C053800D6E092 /* Results.swift in Sources */,
+				66536BB12211C19B00DCF245 /* GameViewController.swift in Sources */,
+				66330E6F25508DAB009D39E4 /* CardManager.swift in Sources */,
+				66536BA92211C19B00DCF245 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		66536BB22211C19B00DCF245 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66536BB32211C19B00DCF245 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66536BB72211C19D00DCF245 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66536BB82211C19D00DCF245 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66536BBB2211C19D00DCF245 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		66536BBC2211C19D00DCF245 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66536BBE2211C19D00DCF245 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mind Match Game/Mind Match Game.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SBS6PCTEQ9;
+				INFOPLIST_FILE = "Mind Match Game/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drewbrokamp.Memory-Match-3--0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		66536BBF2211C19D00DCF245 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7743824FCC53BF1FEBB317D /* Pods-Mind Match Game.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mind Match Game/Mind Match Game.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SBS6PCTEQ9;
+				INFOPLIST_FILE = "Mind Match Game/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drewbrokamp.Memory-Match-3--0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66536BA02211C19B00DCF245 /* Build configuration list for PBXProject "Mind Match Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66536BBB2211C19D00DCF245 /* Debug */,
+				66536BBC2211C19D00DCF245 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66536BBD2211C19D00DCF245 /* Build configuration list for PBXNativeTarget "Mind Match Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66536BBE2211C19D00DCF245 /* Debug */,
+				66536BBF2211C19D00DCF245 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66536B9D2211C19B00DCF245 /* Project object */;
+}

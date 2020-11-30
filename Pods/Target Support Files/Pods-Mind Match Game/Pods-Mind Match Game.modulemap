@@ -1,0 +1,6 @@
+framework module Pods_Mind_Match_Game {
+  umbrella header "Pods-Mind Match Game-umbrella.h"
+
+  export *
+  module * { export * }
+}
