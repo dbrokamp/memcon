@@ -6,6 +6,8 @@
 //  Copyright © 2020 Drew Brokamp. All rights reserved.
 //
 // Initializes basic button
+// Based on FTButtonNode: // http://stackoverflow.com/questions/19082202/setting-up-buttons-in-skscene
+
 
 
 import SpriteKit

@@ -70,7 +70,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     func createAndLoadBannerAd() -> GADBannerView {
         
         let banner = GADBannerView(adSize: kGADAdSizeBanner)
-        //       banner.adUnitID = "ca-app-pub-4493503969826620/2321437662"
+  
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         banner.rootViewController = self
         return banner
@@ -112,7 +112,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     //MARK: Interstitial Ads
     func createAndLoadInterstitial() -> GADInterstitial {
         
-        //     let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4493503969826620/7164335697")
+        //
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         interstitial.delegate = self
         interstitial.load(GADRequest())

@@ -33,6 +33,11 @@ class Menu: SKSpriteNode {
         setupLevelBox()
     }
     
+    public func updateDataLabels(score: String, level: String) {
+        self.scoreBox.setDataLabelText(text: score)
+        self.levelBox.setDataLabelText(text: level)
+    }
+    
     public func moveMenu(to: ViewPosition) {
         switch to {
         case .onScreen:

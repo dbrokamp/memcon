@@ -51,6 +51,11 @@ class TopHud: SKSpriteNode {
         self.addChild(barTimer)
     }
     
+    public func updateBoxDataLabels(score: String, level: String) {
+        self.scoreBox.setDataLabelText(text: score)
+        self.levelBox.setDataLabelText(text: level)
+    }
+    
     public func scoreLabel(text: String) {
         scoreBox.setDataLabelText(text: text)
     }

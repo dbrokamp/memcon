@@ -30,6 +30,8 @@ class MenuState: GKState, ButtonProtocol {
     override func didEnter(from previousState: GKState?) {
         print("MenuState")
         
+        scene.updateLabels(score: "\(scene.gameManager.score)", level: "\(scene.gameManager.level)")
+        
         if scene.gameManager.playAdCounter > 1 && scene.gameManager.playAdCounter % 3 == 0 {
             NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
         }

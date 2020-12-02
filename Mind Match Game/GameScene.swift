@@ -115,6 +115,11 @@ class GameScene: SKScene {
         }
         
     }
+    
+    public func updateLabels(score: String, level: String) {
+        self.topHUD.updateBoxDataLabels(score: score, level: level)
+        self.menu.updateDataLabels(score: score, level: level)
+    }
         
     @objc func pauseGame() {
         scene?.isPaused = true
