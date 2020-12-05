@@ -6,9 +6,8 @@
 //
 //
 /*
- 1. pulls down topHud and up bottomHud
- 2. adds hud objects: timer bar, level, and score labels to hud and fades them in
- 4. moves cards into position
+ 1. pulls down topHud
+ 2. moves cards into position
  3. Sends notification once setup in complete to move to MemorizeState
  */
 import GameplayKit
@@ -27,6 +26,10 @@ class SetupState: GKState, PositionCards {
     //MARK: DIDENTER
     override func didEnter(from previousState: GKState?) {
         print("SetupState")
+        
+        // Remove and add timer bar to reset it
+        scene.topHUD.barTimer.removeFromParent()
+        scene.topHUD.setupBarTimer(barColor: .auroraGreen, actionLabelText: "Memorize: ")
         
         // Set SetupState as the delegate for positionCardsDelegate
         scene.cardManager.positionCardsDelegate = self
