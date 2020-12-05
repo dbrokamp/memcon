@@ -35,6 +35,7 @@ enum ViewZPositions {
     
     static let firstRunHud: CGFloat = 10.0
     static let firstRunHudBackground: CGFloat = 11.0
+    static let firstRunHudLabel: CGFloat = 12.0
     
 }
 

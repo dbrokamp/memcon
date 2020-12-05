@@ -14,7 +14,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, ButtonProtocol {
     
     // Class managers
     var stateMachine: GKStateMachine?
@@ -32,12 +32,8 @@ class GameScene: SKScene {
     //First Run
     var firstRun: FirstRunHud!
     
-
-    
     override func didMove(to view: SKView) {
         
-
-
         backgroundColor = .livid
                 
         // Listen for didResignActive and save state
@@ -57,6 +53,7 @@ class GameScene: SKScene {
         if gameManager.firstRun == false {
             firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.80))
             firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
+            firstRun.firstRunHudButton.delegate = self
             addChild(firstRun)
         }
 
@@ -98,22 +95,25 @@ class GameScene: SKScene {
                                      y: self.view!.frame.minY - bottomHUD.frame.height / 1.75)
         addChild(bottomHUD)
         
-
-       
         // Add the bottomHUD for ads to the scene
         bottomHUD.run(SKAction.moveTo(y: self.view!.frame.minY + bottomHUD.frame.height / 2, duration: 1.0))
         
-        // Call to GameViewController to add the bottomBannerView to the scene
-        run(SKAction.wait(forDuration: 1.0)) {
-            NotificationCenter.default.post(name: .showBannerAd, object: nil)
-        }
-        
+    }
     
-        // Start the game cycle
-        run(SKAction.wait(forDuration: 2.0)) {
-            self.stateMachine?.enter(MenuState.self)
+    func buttonPressed(sender: Button) {
+        if sender.name == "firstRunHudButton" {
+            self.firstRun.run(SKAction.fadeAlpha(to: 0.0, duration: 2.0))
+            self.run(SKAction.wait(forDuration: 2.2)) {
+                self.stateMachine?.enter(MenuState.self)
+                NotificationCenter.default.post(name: .showBannerAd, object: nil)
+                self.firstRun.removeAllChildren()
+                self.firstRun.removeAllActions()
+                self.firstRun.removeFromParent()
+            }
+
+        } else {
+            print("No button pressed")
         }
-        
     }
     
     public func updateLabels(score: String, level: String) {
