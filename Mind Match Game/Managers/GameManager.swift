@@ -60,6 +60,7 @@ class GameManager {
     public func resetGameVariables() {
         numberOfMatchesMade = 0
         numberOfIncorrectMatches = 0
+        levelPointsCalc = 0
  
     }
     
@@ -94,7 +95,7 @@ class GameManager {
         }
         score = score + Int(levelPointsCalc)
         
-        levelPointsCalc = 0
+
     }
     
     

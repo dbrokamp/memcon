@@ -49,12 +49,19 @@ class GameScene: SKScene, ButtonProtocol {
                                                LostLevelState(scene: self),
                                                WonLevelState(scene: self)])
         
-        // Launch first run hud if first run
+        // Launch first run hud if first run is false, else launch menu state
         if gameManager.firstRun == false {
             firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.80))
             firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
             firstRun.firstRunHudButton.delegate = self
             addChild(firstRun)
+        } else if gameManager.firstRun == true {
+            self.run(SKAction.wait(forDuration: 2.0)) {
+                self.stateMachine?.enter(MenuState.self)
+                NotificationCenter.default.post(name: .showBannerAd, object: nil)
+            }
+
+            
         }
 
         
@@ -109,6 +116,7 @@ class GameScene: SKScene, ButtonProtocol {
                 self.firstRun.removeAllChildren()
                 self.firstRun.removeAllActions()
                 self.firstRun.removeFromParent()
+                self.gameManager.firstRun = true
             }
 
         } else {
