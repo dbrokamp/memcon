@@ -51,7 +51,7 @@ class GameScene: SKScene, ButtonProtocol {
         
         // Launch first run hud if first run is false, else launch menu state
         if gameManager.firstRun == false {
-            firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.80))
+            firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.70))
             firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
             firstRun.firstRunHudButton.delegate = self
             addChild(firstRun)
@@ -116,7 +116,7 @@ class GameScene: SKScene, ButtonProtocol {
                 self.firstRun.removeAllChildren()
                 self.firstRun.removeAllActions()
                 self.firstRun.removeFromParent()
-                self.gameManager.firstRun = true
+//                self.gameManager.firstRun = true
             }
 
         } else {

@@ -42,7 +42,7 @@ class GameManager {
     init() {
         score = UserDefaults.standard.integer(forKey: "score")
         level = UserDefaults.standard.integer(forKey: "level")
-        firstRun = UserDefaults.standard.bool(forKey: "firstRun")
+        firstRun =  false // UserDefaults.standard.bool(forKey: "firstRun")
         playAdCounter = 0
         
         if level == 0 {
@@ -52,8 +52,8 @@ class GameManager {
         print(firstRun)
         
         // MARK: Debug Times
-        memorize = 5 // 16 - level
-        match = 5 // 30 + memorize
+        memorize = 16 - level
+        match = 30 + memorize
         
     }
     

@@ -16,7 +16,7 @@ class BottomHud: SKSpriteNode {
     
     init(size: CGSize) {
         
-        super.init(texture: nil, color: UIColor(red: 12/255, green: 36/255, blue: 97/255, alpha: 1.0), size: size)  // French Palette Dark Sapphire rgb(12, 36, 97)
+        super.init(texture: nil, color: .darkSapphire, size: size)  // French Palette Dark Sapphire rgb(12, 36, 97)
         self.alpha = 0.75
         self.zPosition = ViewZPositions.hud
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
