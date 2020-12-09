@@ -35,7 +35,7 @@ class MenuState: GKState, ButtonProtocol {
         
         if scene.gameManager.isShowingBannerAd == false {
             scene.run(SKAction.wait(forDuration: 1.0)) {
-       //         NotificationCenter.default.post(name: .showBannerAd, object: nil)
+                NotificationCenter.default.post(name: .showBannerAd, object: nil)
                 self.scene.gameManager.isShowingBannerAd = true
             }
 
