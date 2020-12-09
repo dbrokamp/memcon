@@ -14,7 +14,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, ButtonProtocol {
+class GameScene: SKScene {
     
     // Class managers
     var stateMachine: GKStateMachine?
@@ -42,28 +42,13 @@ class GameScene: SKScene, ButtonProtocol {
         // Initialize the managers
         cardManager = CardManager(viewSize: self.size)
         gameManager = GameManager()
-        stateMachine = GKStateMachine(states: [MenuState(scene: self),
+        stateMachine = GKStateMachine(states: [FirstRun(scene: self),
+                                        MenuState(scene: self),
                                                SetupState(scene: self),
                                                MemorizeState(scene: self),
                                                MatchState(scene: self),
                                                LostLevelState(scene: self),
                                                WonLevelState(scene: self)])
-        
-        // Launch first run hud if first run is false, else launch menu state
-        if gameManager.firstRun == false {
-            firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.70))
-            firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
-            firstRun.firstRunHudButton.delegate = self
-            addChild(firstRun)
-        } else if gameManager.firstRun == true {
-            self.run(SKAction.wait(forDuration: 2.0)) {
-                self.stateMachine?.enter(MenuState.self)
-                NotificationCenter.default.post(name: .showBannerAd, object: nil)
-            }
-
-            
-        }
-
         
         // Start Menu
         menu = Menu(size: CGSize(width: size.width / 1.5, height: size.height * 0.25))
@@ -103,26 +88,36 @@ class GameScene: SKScene, ButtonProtocol {
         addChild(bottomHUD)
         
         // Add the bottomHUD for ads to the scene
-        bottomHUD.run(SKAction.moveTo(y: self.view!.frame.minY + bottomHUD.frame.height / 2, duration: 1.0))
+
+        
+        // First Run Hud
+        firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.40))
+        firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
+        
+        // Launch first run hud if first run is false, else launch menu state
+        if !gameManager.firstRun {
+            stateMachine?.enter(FirstRun.self)
+        } else if gameManager.firstRun {
+            stateMachine?.enter(MenuState.self)
+        }
+//        if gameManager.firstRun == false {
+//            firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.70))
+//            firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
+//            firstRun.firstRunHudButton.delegate = self
+//            addChild(firstRun)
+//        } else if gameManager.firstRun == true {
+//            self.run(SKAction.wait(forDuration: 2.0)) {
+//                self.stateMachine?.enter(MenuState.self)
+//                NotificationCenter.default.post(name: .showBannerAd, object: nil)
+//            }
+//
+//
+//        }
+
         
     }
     
-    func buttonPressed(sender: Button) {
-        if sender.name == "firstRunHudButton" {
-            self.firstRun.run(SKAction.fadeAlpha(to: 0.0, duration: 2.0))
-            self.run(SKAction.wait(forDuration: 2.2)) {
-                self.stateMachine?.enter(MenuState.self)
-                NotificationCenter.default.post(name: .showBannerAd, object: nil)
-                self.firstRun.removeAllChildren()
-                self.firstRun.removeAllActions()
-                self.firstRun.removeFromParent()
-//                self.gameManager.firstRun = true
-            }
 
-        } else {
-            print("No button pressed")
-        }
-    }
     
     public func updateLabels(score: String, level: String) {
         self.topHUD.updateBoxDataLabels(score: score, level: level)

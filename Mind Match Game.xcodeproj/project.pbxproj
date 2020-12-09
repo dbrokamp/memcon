@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1FC253DCC28FCDF81346DD3B /* Pods_Mind_Match_Game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */; };
 		66160DB7230AE6F6000327DC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66160DB6230AE6F6000327DC /* GameScene.swift */; };
+		6617531825802162006780B0 /* FirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6617531725802162006780B0 /* FirstRun.swift */; };
 		66330E6C25508D8E009D39E4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E6B25508D8E009D39E4 /* Globals.swift */; };
 		66330E6F25508DAB009D39E4 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E6E25508DAB009D39E4 /* CardManager.swift */; };
 		66330E7325508DC0009D39E4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E7225508DC0009D39E4 /* GameManager.swift */; };
@@ -43,6 +44,7 @@
 		2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mind_Match_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Match Game.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game.debug.xcconfig"; sourceTree = "<group>"; };
 		66160DB6230AE6F6000327DC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		6617531725802162006780B0 /* FirstRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRun.swift; sourceTree = "<group>"; };
 		66330E6B25508D8E009D39E4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		66330E6E25508DAB009D39E4 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		66330E7225508DC0009D39E4 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		66330EC325508F3B009D39E4 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				6617531725802162006780B0 /* FirstRun.swift */,
 				66330EB125508EE4009D39E4 /* MenuState.swift */,
 				66330EB425508EED009D39E4 /* SetupState.swift */,
 				66330EB725508EFC009D39E4 /* MemorizeState.swift */,
@@ -344,6 +347,7 @@
 				66330EC825509041009D39E4 /* GameCenterHelper.swift in Sources */,
 				665CD5DA255AECD500FDBFF5 /* Menu.swift in Sources */,
 				66330EA425508E9C009D39E4 /* Label.swift in Sources */,
+				6617531825802162006780B0 /* FirstRun.swift in Sources */,
 				66330EC125508F32009D39E4 /* WonLevelState.swift in Sources */,
 				666F8900256C053800D6E092 /* Results.swift in Sources */,
 				66536BB12211C19B00DCF245 /* GameViewController.swift in Sources */,

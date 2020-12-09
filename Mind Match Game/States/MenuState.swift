@@ -30,6 +30,19 @@ class MenuState: GKState, ButtonProtocol {
     override func didEnter(from previousState: GKState?) {
         print("MenuState")
         
+        scene.bottomHUD.run(SKAction.moveTo(y: self.scene.view!.frame.minY + scene.bottomHUD.frame.height / 2, duration: 1.0))
+        
+        
+        if scene.gameManager.isShowingBannerAd == false {
+            scene.run(SKAction.wait(forDuration: 1.0)) {
+       //         NotificationCenter.default.post(name: .showBannerAd, object: nil)
+                self.scene.gameManager.isShowingBannerAd = true
+            }
+
+        }
+
+
+        
         scene.updateLabels(score: "\(scene.gameManager.score)", level: "\(scene.gameManager.level)")
         
         if scene.gameManager.playAdCounter > 1 && scene.gameManager.playAdCounter % 3 == 0 {

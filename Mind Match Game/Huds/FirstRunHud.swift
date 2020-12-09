@@ -14,16 +14,64 @@ import SpriteKit
 class FirstRunHud: SKSpriteNode {
     
     public var firstRunHudButton: Button!
+    private var firstSlide: SKNode!
+    private var secondSlide: SKNode!
+    private var thirdSlide: SKNode!
+    private var fourthSlide: SKNode!
+    
+    public var slide: Slides {
+        didSet {
+            print(slide)
+        }
+    }
     
     init(size: CGSize) {
+        slide = .first
         
         super.init(texture: nil, color: .clear, size: size)
         self.zPosition = ViewZPositions.firstRunHud
         
         setupBackground()
-        setupLayout()
+        setupButton()
+        setupFirstSlide()
+        setupSecondSlide()
+        setupThirdSlide()
+        setupFourthSlide()
         
     }
+    
+    public func changeSlide(toSlide: Slides) {
+        switch toSlide {
+        case .first:
+            self.secondSlide.alpha = 0.0
+            self.thirdSlide.alpha = 0.0
+            self.fourthSlide.alpha = 0.0
+        case .second:
+            self.firstSlide.run(SKAction.fadeAlpha(to: 0.0, duration: 0.25))
+            self.run(SKAction.wait(forDuration: 0.25)) {
+                self.secondSlide.run(SKAction.fadeAlpha(to: 1.0, duration: 0.25))
+            }
+            self.slide = .second
+        case .third:
+            self.secondSlide.run(SKAction.fadeAlpha(to: 0.0, duration: 0.25))
+            self.run(SKAction.wait(forDuration: 0.25)) {
+                self.thirdSlide.run(SKAction.fadeAlpha(to: 1.0, duration: 0.25))
+            }
+            self.slide = .third
+        case .fourth:
+            self.thirdSlide.run(SKAction.fadeAlpha(to: 0.0, duration: 0.25))
+            self.run(SKAction.wait(forDuration: 0.25)) {
+                self.fourthSlide.run(SKAction.fadeAlpha(to: 1.0, duration: 0.25))
+            }
+            self.slide = .fourth
+            self.firstRunHudButton.label.text = "Close"
+        case .complete:
+            self.fourthSlide.run(SKAction.fadeAlpha(to: 0.0, duration: 0.25))
+            self.slide = .complete
+        }
+    }
+    
+    
     
     private func setupBackground() {
         let background = SKShapeNode(rectOf: self.size, cornerRadius: 20.0)
@@ -34,88 +82,142 @@ class FirstRunHud: SKSpriteNode {
         self.addChild(background)
     }
     
-    private func setupLayout() {
-        let scoringLabel = HudBox(boxSize: CGSize(width: self.size.width / 3, height: self.size.height / 16), labelText: "", dataLabelText: "Scoring")
-        scoringLabel.position = CGPoint(x: 0, y: self.frame.maxY - scoringLabel.frame.height)
-        scoringLabel.zPosition = ViewZPositions.firstRunHudLabel
-        self.addChild(scoringLabel)
+    private func setupFirstSlide() {
+        firstSlide = SKNode()
+        firstSlide.zPosition = ViewZPositions.firstRunHudLabel
+        firstSlide.alpha = 1.0
+        self.addChild(firstSlide)
+        
+        let titleMessageOne = Label(text: "Welcome to")
+        titleMessageOne.position = CGPoint(x: 0, y: 0)
+        firstSlide.addChild(titleMessageOne)
+        
+        let titleMessageTwo = Label(text: "Memory+Concentration!")
+        titleMessageTwo.position = CGPoint(x: 0, y: titleMessageOne.position.y - titleMessageOne.frame.height - 10.0)
+        firstSlide.addChild(titleMessageTwo)
+        
+        
+    }
+    
+    private func setupSecondSlide() {
+        secondSlide = SKNode()
+        secondSlide.zPosition = ViewZPositions.firstRunHudLabel
+        secondSlide.alpha = 0.0
+
+        self.addChild(secondSlide)
+        
+        let scoringLabel = HudBox(boxSize: CGSize(width: self.size.width / 3, height: self.size.height / 10), labelText: "", dataLabelText: "Scoring")
+        scoringLabel.position = CGPoint(x: 0,
+                                        y: self.frame.maxY - scoringLabel.frame.height)
+        secondSlide.addChild(scoringLabel)
         
         let scoreDirectionsOne = Label(text: "One point per match made.")
+        scoreDirectionsOne.position = CGPoint(x: self.frame.minX + 10,
+                                              y: scoringLabel.position.y - scoringLabel.frame.height * 2.0)
         scoreDirectionsOne.horizontalAlignmentMode = .left
+        secondSlide.addChild(scoreDirectionsOne)
         
-        let scoreDirectionsTwo = Label(text: "Incorrect matches subtract from")
+        let scoreDirectionsTwo = Label(text: "Incorrect matches subtract from you")
         scoreDirectionsTwo.position = CGPoint(x: scoreDirectionsOne.position.x,
-                                              y:  scoreDirectionsOne.frame.midY - scoreDirectionsTwo.frame.height * 2.5)
+                                              y:  scoreDirectionsOne.position.y - scoreDirectionsTwo.frame.height * 2.5)
         scoreDirectionsTwo.horizontalAlignmentMode = .left
-        let scoreDirectionsTwoTwo = Label(text: "your final score.")
+        secondSlide.addChild(scoreDirectionsTwo)
+
+        let scoreDirectionsTwoTwo = Label(text: "final score.")
         scoreDirectionsTwoTwo.horizontalAlignmentMode = .left
         scoreDirectionsTwoTwo.position = CGPoint(x: scoreDirectionsOne.position.x,
                                                  y: scoreDirectionsTwo.position.y - scoreDirectionsTwoTwo.frame.height)
+        secondSlide.addChild(scoreDirectionsTwoTwo)
         
-        let scoreDirectionsThree = Label(text: "There is no deduction for flipping")
+        let scoreDirectionsThree = Label(text: "There is no deduction for flipping the")
         scoreDirectionsThree.position = CGPoint(x: scoreDirectionsOne.position.x,
-                                                y: scoreDirectionsTwoTwo.frame.midY - scoreDirectionsThree.frame.height * 2.5)
+                                                y: scoreDirectionsTwoTwo.position.y - scoreDirectionsThree.frame.height * 2.5)
         scoreDirectionsThree.horizontalAlignmentMode = .left
+        secondSlide.addChild(scoreDirectionsThree)
         
-        let scoreDirectionsThreeTwo = Label(text: "the same card.")
+        let scoreDirectionsThreeTwo = Label(text: "same card.")
         scoreDirectionsThreeTwo.position = CGPoint(x: scoreDirectionsOne.position.x,
                                                    y: scoreDirectionsThree.position.y - scoreDirectionsThree.frame.height)
         scoreDirectionsThreeTwo.horizontalAlignmentMode = .left
+        secondSlide.addChild(scoreDirectionsThreeTwo)
         
-        let scoreDirections = SKNode()
-        scoreDirections.addChild(scoreDirectionsOne)
-        scoreDirections.addChild(scoreDirectionsTwo)
-        scoreDirections.addChild(scoreDirectionsTwoTwo)
-        scoreDirections.addChild(scoreDirectionsThree)
-        scoreDirections.addChild(scoreDirectionsThreeTwo)
-        scoreDirections.zPosition = ViewZPositions.firstRunHudLabel
-        scoreDirections.position = CGPoint(x: self.frame.minX + 10, y: scoringLabel.position.y - scoringLabel.frame.height * 1.5)
-        self.addChild(scoreDirections)
+    }
+    
+    private func setupThirdSlide() {
+        thirdSlide = SKNode()
+        thirdSlide.zPosition = ViewZPositions.firstRunHudLabel
+        thirdSlide.alpha = 0.0
         
-        let memorizeLabel = HudBox(boxSize: scoringLabel.size, labelText: "", dataLabelText: "Timers")
-        memorizeLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        self.addChild(memorizeLabel)
+        self.addChild(thirdSlide)
         
-        let memorizeDirections = SKNode()
-        memorizeDirections.zPosition = ViewZPositions.firstRunHudLabel
-        memorizeDirections.position = CGPoint(x: self.frame.minX + 10, y: memorizeLabel.position.y - memorizeLabel.frame.height * 1.5)
-        self.addChild(memorizeDirections)
+        let memorizeLabel = HudBox(boxSize: CGSize(width: self.size.width / 3, height: self.size.height / 10), labelText: "", dataLabelText: "Timers")
+        memorizeLabel.position = CGPoint(x: 0, y: self.frame.maxY - memorizeLabel.frame.height)
+        self.thirdSlide.addChild(memorizeLabel)
         
-        let memorizeOne = Label(text: "Memorize timer starts at 15 seconds,")
+        let memorizeOne = Label(text: "Memorize timer starts at 15 seconds.")
         memorizeOne.horizontalAlignmentMode = .left
-        memorizeDirections.addChild(memorizeOne)
+        memorizeOne.position = CGPoint(x: self.frame.minX + 10,
+                                       y: memorizeLabel.position.y - memorizeLabel.frame.height * 2.0)
+        self.thirdSlide.addChild(memorizeOne)
         
-        let memorizeTwo = Label(text: "every level increase, decreases the")
+        let memorizeTwo = Label(text: "Every level increase decreases the")
         memorizeTwo.horizontalAlignmentMode = .left
-        memorizeTwo.position = CGPoint(x: memorizeOne.position.x, y: memorizeOne.position.y - memorizeOne.frame.height)
-        memorizeDirections.addChild(memorizeTwo)
+        memorizeTwo.position = CGPoint(x: memorizeOne.position.x, y: memorizeOne.position.y - memorizeTwo.frame.height)
+        self.thirdSlide.addChild(memorizeTwo)
         
         let memorizeThree = Label(text: "memorize timer by 1 second.")
         memorizeThree.horizontalAlignmentMode = .left
-        memorizeThree.position = CGPoint(x: memorizeOne.position.x, y: memorizeTwo.position.y - memorizeTwo.frame.height)
-        memorizeDirections.addChild(memorizeThree)
+        memorizeThree.position = CGPoint(x: memorizeOne.position.x, y: memorizeTwo.position.y - memorizeThree.frame.height)
+        self.thirdSlide.addChild(memorizeThree)
         
-        let matchOne = Label(text: "Match timer starts at 45 seconds,")
+        let matchOne = Label(text: "Match timer starts at 45 seconds.")
         matchOne.horizontalAlignmentMode = .left
         matchOne.position = CGPoint(x: memorizeOne.position.x, y: memorizeThree.position.y - memorizeThree.frame.size.height * 2.5)
-        memorizeDirections.addChild(matchOne)
+        self.thirdSlide.addChild(matchOne)
         
-        let matchTwo = Label(text: "every level increase, decreases the")
+        let matchTwo = Label(text: "Every level increase decreases the")
         matchTwo.horizontalAlignmentMode = .left
-        matchTwo.position = CGPoint(x: memorizeOne.position.x, y: matchOne.position.y - matchOne.frame.height)
-        memorizeDirections.addChild(matchTwo)
+        matchTwo.position = CGPoint(x: memorizeOne.position.x, y: matchOne.position.y - matchTwo.frame.height)
+        self.thirdSlide.addChild(matchTwo)
         
         let matchThree = Label(text: "match timer by 1 second.")
         matchThree.horizontalAlignmentMode = .left
-        matchThree.position = CGPoint(x: memorizeOne.position.y, y: matchTwo.position.y - matchTwo.frame.height)
-        memorizeDirections.addChild(matchThree)
+        matchThree.position = CGPoint(x: memorizeOne.position.x, y: matchTwo.position.y - matchThree.frame.height)
+        self.thirdSlide.addChild(matchThree)
+    }
+    
+    private func setupFourthSlide() {
+        fourthSlide = SKNode()
+        fourthSlide.zPosition = ViewZPositions.firstRunHudLabel
+        fourthSlide.alpha = 0.0
+        self.addChild(fourthSlide)
         
-        firstRunHudButton = Button(text: "Continue", size: CGSize(width: self.frame.width / 2, height: self.frame.height / 20))
+        let goodLuckOne = Label(text: "Get ready to test your memory!")
+        goodLuckOne.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        fourthSlide.addChild(goodLuckOne)
+        
+        let goodLuckTwo = Label(text: "Good Luck!")
+        goodLuckTwo.position = CGPoint(x: self.frame.midX,
+                                       y: goodLuckOne.position.y - goodLuckOne.frame.height)
+        fourthSlide.addChild(goodLuckTwo)
+    }
+    
+    private func setupButton() {
+        firstRunHudButton = Button(text: "Continue", size: CGSize(width: self.frame.width / 3, height: self.frame.height / 10))
         firstRunHudButton.position = CGPoint(x: self.frame.midX, y: self.frame.minY + firstRunHudButton.frame.height)
         firstRunHudButton.zPosition = ViewZPositions.firstRunHudLabel
         firstRunHudButton.name = "firstRunHudButton"
         firstRunHudButton.adjustLabelFontSizeToFitRect(labelNode: self.firstRunHudButton.label, rect: self.firstRunHudButton.frame)
         self.addChild(firstRunHudButton)
+    }
+    
+    private func setupLayout() {
+        
+
+        
+
+        
+
     }
     
     required init?(coder aDecoder: NSCoder) {

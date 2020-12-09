@@ -33,6 +33,8 @@ class GameManager {
     public var memorize: Int
     public var match: Int
     
+    public var isShowingBannerAd: Bool
+    
     public var firstRun: Bool {
         didSet {
             UserDefaults.standard.setValue(firstRun, forKey: "firstRun")
@@ -54,6 +56,8 @@ class GameManager {
         // MARK: Debug Times
         memorize = 16 - level
         match = 30 + memorize
+        
+        isShowingBannerAd = false
         
     }
     

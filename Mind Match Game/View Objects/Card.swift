@@ -16,7 +16,7 @@ class Card: SKSpriteNode {
     // Private properties
     private let flipCard = SKAction.sequence([SKAction.scale(to: 1.1, duration: 0.10), SKAction.scale(to: 1.0, duration: 0.10)])        // Scale up, then scale down to original
     private var faceDownColor: UIColor = .forestBlues
-    private var faceUpColor: UIColor = .dupain
+    private var faceUpColor: UIColor = .lynxWhite//.dupain
     private var faceUpSymbol: SKSpriteNode!
     private var faceDownSymbol: SKSpriteNode!
     private var isFaceUp: Bool = false {

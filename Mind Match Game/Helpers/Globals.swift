@@ -23,6 +23,10 @@ enum SymbolConfigurations {
     static let configuration = UIImage.SymbolConfiguration(pointSize: 23.0, weight: .semibold)
 }
 
+enum Slides {
+    case first, second, third, fourth, complete
+}
+
 enum ViewZPositions {    
     static let background: CGFloat = 1.0
     static let cards: CGFloat = 2.0

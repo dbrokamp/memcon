@@ -48,6 +48,7 @@ extension UIColor {
     static let palmSpringsSplash = UIColor(red: 33/255, green: 140/255, blue: 116/255, alpha: 1.0)
     static let spicedButterNut = UIColor(red: 255/255, green: 218/255, blue: 121/255, alpha: 1.0)
     static let desert = UIColor(red: 204/255, green: 174/255, blue: 98/255, alpha: 1.0)
+    static let swanWhite = UIColor(red: 247/255, green: 241/255, blue: 227/255, alpha: 1.0)
     
     //French Palette flatuicolors.com
     static let paradiseGreen = UIColor(red: 184/255, green: 233/255, blue: 148/255, alpha: 1.0)
@@ -62,4 +63,9 @@ extension UIColor {
     static let mandarinRed = UIColor(red: 229/255, green: 80/255, blue: 57/255, alpha: 1.0)
     static let squashBlossom = UIColor(red: 246/255, green: 185/255, blue: 59/255, alpha: 1.0)
     static let darkSapphire = UIColor(red: 12/255, green: 36/255, blue: 97/255, alpha: 1.0)
+    
+    //British Palette flatuicolors.com
+    static let lynxWhite = UIColor(red: 245/255, green: 246/255, blue: 250/255, alpha: 1.0)
+
+
 }
