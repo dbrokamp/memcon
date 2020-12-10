@@ -54,6 +54,7 @@ class FirstRun: GKState, ButtonProtocol {
         scene?.firstRun.removeAllActions()
         scene?.firstRun.removeAllChildren()
         scene?.firstRun.removeFromParent()
+        scene?.gameManager.firstRun = true
     }
     
     

@@ -44,7 +44,7 @@ class GameManager {
     init() {
         score = UserDefaults.standard.integer(forKey: "score")
         level = UserDefaults.standard.integer(forKey: "level")
-        firstRun =  false // UserDefaults.standard.bool(forKey: "firstRun")
+        firstRun = UserDefaults.standard.bool(forKey: "firstRun")
         playAdCounter = 0
         
         if level == 0 {

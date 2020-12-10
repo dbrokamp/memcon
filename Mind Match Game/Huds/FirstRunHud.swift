@@ -89,10 +89,10 @@ class FirstRunHud: SKSpriteNode {
         self.addChild(firstSlide)
         
         let titleMessageOne = Label(text: "Welcome to")
-        titleMessageOne.position = CGPoint(x: 0, y: 0)
+        titleMessageOne.position = CGPoint(x: 0, y: 0 + 10)
         firstSlide.addChild(titleMessageOne)
         
-        let titleMessageTwo = Label(text: "Memory+Concentration!")
+        let titleMessageTwo = Label(text: "Memory + Concentration!")
         titleMessageTwo.position = CGPoint(x: 0, y: titleMessageOne.position.y - titleMessageOne.frame.height - 10.0)
         firstSlide.addChild(titleMessageTwo)
         
