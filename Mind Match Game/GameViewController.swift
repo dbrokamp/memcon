@@ -12,9 +12,9 @@ import GameKit
 import GoogleMobileAds
 
 
-class GameViewController: UIViewController, GADInterstitialDelegate {
+class GameViewController: UIViewController, GADFullScreenContentDelegate {
     
-    var interstitial: GADInterstitial!
+    var interstitial: GADInterstitialAd!
     var bannerViewBottom: GADBannerView!
 
     
@@ -40,7 +40,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
             
             
             //Create and Load adMob Ads
-            interstitial = createAndLoadInterstitial()
+            createAndLoadInterstitial()
             bannerViewBottom = createAndLoadBannerAd()
             bannerViewBottom.load(GADRequest())
             
@@ -69,7 +69,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     
     func createAndLoadBannerAd() -> GADBannerView {
         
-        let banner = GADBannerView(adSize: kGADAdSizeBanner)
+        let banner = GADBannerView(adSize: GADAdSizeBanner)
   
         banner.adUnitID = kBannerAdUnitID
         banner.rootViewController = self
@@ -110,19 +110,25 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     //MARK: Interstitial Ads
-    func createAndLoadInterstitial() -> GADInterstitial {
+    func createAndLoadInterstitial() {
         
-        //
-        let interstitial = GADInterstitial(adUnitID: kIntersitialAdUnitID)
-        interstitial.delegate = self
-        interstitial.load(GADRequest())
-        return interstitial
+        let request = GADRequest()
+            GADInterstitialAd.load(
+              withAdUnitID: kIntersitialAdUnitID, request: request
+            ) { (ad, error) in
+              if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+              }
+              self.interstitial = ad
+              self.interstitial?.fullScreenContentDelegate = self
+            }
         
     }
     
     @objc func showInterstitial() {
         
-        if interstitial.isReady {
+        if interstitial != nil {
             interstitial.present(fromRootViewController: self)
         } else {
             print("Ad wasn't ready")
@@ -130,8 +136,8 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         
     }
     
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadInterstitial()
+    func interstitialDidDismissScreen(_ ad: GADInterstitialAd) {
+        createAndLoadInterstitial()
     }
     
     override var shouldAutorotate: Bool {

@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-protocol PositionCards: class {
+protocol PositionCards: AnyObject {
     func positionCardsComplete(sender: CardManager)
 }
 

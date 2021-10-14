@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-protocol CardSelected: class {
+protocol CardSelected: AnyObject {
     func cardSelected(sender: Card)
 }
 

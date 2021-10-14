@@ -13,7 +13,7 @@
 
 import SpriteKit
 
-protocol ButtonProtocol: class {
+protocol ButtonProtocol: AnyObject {
     func buttonPressed(sender: Button)
 }
 
