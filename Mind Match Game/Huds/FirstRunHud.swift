@@ -117,7 +117,7 @@ class FirstRunHud: SKSpriteNode {
         scoreDirectionsOne.horizontalAlignmentMode = .left
         secondSlide.addChild(scoreDirectionsOne)
         
-        let scoreDirectionsTwo = Label(text: "Incorrect matches subtract from you")
+        let scoreDirectionsTwo = Label(text: "Incorrect matches subtract from your")
         scoreDirectionsTwo.position = CGPoint(x: scoreDirectionsOne.position.x,
                                               y:  scoreDirectionsOne.position.y - scoreDirectionsTwo.frame.height * 2.5)
         scoreDirectionsTwo.horizontalAlignmentMode = .left
@@ -160,7 +160,7 @@ class FirstRunHud: SKSpriteNode {
                                        y: memorizeLabel.position.y - memorizeLabel.frame.height * 2.0)
         self.thirdSlide.addChild(memorizeOne)
         
-        let memorizeTwo = Label(text: "Every level increase decreases the")
+        let memorizeTwo = Label(text: "Every level decreases the")
         memorizeTwo.horizontalAlignmentMode = .left
         memorizeTwo.position = CGPoint(x: memorizeOne.position.x, y: memorizeOne.position.y - memorizeTwo.frame.height)
         self.thirdSlide.addChild(memorizeTwo)
@@ -175,7 +175,7 @@ class FirstRunHud: SKSpriteNode {
         matchOne.position = CGPoint(x: memorizeOne.position.x, y: memorizeThree.position.y - memorizeThree.frame.size.height * 2.5)
         self.thirdSlide.addChild(matchOne)
         
-        let matchTwo = Label(text: "Every level increase decreases the")
+        let matchTwo = Label(text: "Every level decreases the")
         matchTwo.horizontalAlignmentMode = .left
         matchTwo.position = CGPoint(x: memorizeOne.position.x, y: matchOne.position.y - matchTwo.frame.height)
         self.thirdSlide.addChild(matchTwo)
