@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FC253DCC28FCDF81346DD3B /* Pods_Mind_Match_Game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */; };
 		66160DB7230AE6F6000327DC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66160DB6230AE6F6000327DC /* GameScene.swift */; };
 		6617531825802162006780B0 /* FirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6617531725802162006780B0 /* FirstRun.swift */; };
 		66330E6C25508D8E009D39E4 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66330E6B25508D8E009D39E4 /* Globals.swift */; };
@@ -41,8 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mind_Match_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Match Game.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game.debug.xcconfig"; sourceTree = "<group>"; };
 		66160DB6230AE6F6000327DC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6617531725802162006780B0 /* FirstRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRun.swift; sourceTree = "<group>"; };
 		66330E6B25508D8E009D39E4 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -76,7 +73,6 @@
 		66B704A7247164C90060AA71 /* Mind Match Game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mind Match Game.entitlements"; sourceTree = "<group>"; };
 		66B7C3802575579B0002C929 /* FirstRunHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunHud.swift; sourceTree = "<group>"; };
 		66EA3D972549CCBC00BD7EB4 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
-		D7743824FCC53BF1FEBB317D /* Pods-Mind Match Game.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Match Game.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +81,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				66536BC22211C1D700DCF245 /* GameKit.framework in Frameworks */,
-				1FC253DCC28FCDF81346DD3B /* Pods_Mind_Match_Game.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +129,6 @@
 				66536BA62211C19B00DCF245 /* Products */,
 				66536BA72211C19B00DCF245 /* Mind Match Game */,
 				66536BC02211C1D700DCF245 /* Frameworks */,
-				ADF2E9773673EFDA3209C4AA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				66536BC12211C1D700DCF245 /* GameKit.framework */,
-				2ED39BDE4A51F5FE45E9BD61 /* Pods_Mind_Match_Game.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,15 +190,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		ADF2E9773673EFDA3209C4AA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */,
-				D7743824FCC53BF1FEBB317D /* Pods-Mind Match Game.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,11 +197,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66536BBD2211C19D00DCF245 /* Build configuration list for PBXNativeTarget "Mind Match Game" */;
 			buildPhases = (
-				3074E9C731D1F23D77734969 /* [CP] Check Pods Manifest.lock */,
 				66536BA12211C19B00DCF245 /* Sources */,
 				66536BA22211C19B00DCF245 /* Frameworks */,
 				66536BA32211C19B00DCF245 /* Resources */,
-				0F97214F78201E71693F470F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,48 +262,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0F97214F78201E71693F470F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mind Match Game/Pods-Mind Match Game-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3074E9C731D1F23D77734969 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mind Match Game-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66536BA12211C19B00DCF245 /* Sources */ = {
@@ -498,7 +438,6 @@
 		};
 		66536BBE2211C19D00DCF245 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3720AF8EB861310D9C0A7E86 /* Pods-Mind Match Game.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mind Match Game/Mind Match Game.entitlements";
@@ -521,7 +460,6 @@
 		};
 		66536BBF2211C19D00DCF245 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7743824FCC53BF1FEBB317D /* Pods-Mind Match Game.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mind Match Game/Mind Match Game.entitlements";

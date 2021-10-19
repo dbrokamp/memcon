@@ -7,6 +7,8 @@
 //
 
 import GameplayKit
+import AppTrackingTransparency
+import AdSupport
 
 class FirstRun: GKState, ButtonProtocol {
 
@@ -57,6 +59,5 @@ class FirstRun: GKState, ButtonProtocol {
         scene?.gameManager.firstRun = true
     }
     
-    
-    
+   
 }

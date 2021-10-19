@@ -23,7 +23,7 @@
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-4493503969826620~3180715814</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.card-games</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSUserTrackingUsageDescription</key>

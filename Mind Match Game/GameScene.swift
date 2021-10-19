@@ -13,8 +13,8 @@
  */
 import SpriteKit
 import GameplayKit
-import AdSupport
-import AppTrackingTransparency
+
+
 
 class GameScene: SKScene {
     
@@ -37,9 +37,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         backgroundColor = .livid
-        
-        // For ad tracking
-        requestPermission()
 
         // Listen for didResignActive and save state
         NotificationCenter.default.addObserver(self, selector: #selector(pauseGame), name: NSNotification.Name.pauseGame, object: nil)
@@ -105,55 +102,7 @@ class GameScene: SKScene {
         } else if gameManager.firstRun {
             stateMachine?.enter(MenuState.self)
         }
-//        if gameManager.firstRun == false {
-//            firstRun = FirstRunHud(size: CGSize(width: size.width * 0.90, height: size.height * 0.70))
-//            firstRun.position = CGPoint(x: frame.midX, y: frame.midY)
-//            firstRun.firstRunHudButton.delegate = self
-//            addChild(firstRun)
-//        } else if gameManager.firstRun == true {
-//            self.run(SKAction.wait(forDuration: 2.0)) {
-//                self.stateMachine?.enter(MenuState.self)
-//                NotificationCenter.default.post(name: .showBannerAd, object: nil)
-//            }
-//
-//
-//        }
-
-        
     }
-    
-    //   https://medium.com/@nish.bhasin/how-to-get-idfa-in-ios14-54f7ea02aa42
-    func requestPermission() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization { status in
-                switch status {
-                case .authorized:
-                    // Tracking authorization dialog was shown
-                    // and we are authorized
-                    print("Authorized")
-                    
-                    // Now that we are authorized we can get the IDFA
-                    print(ASIdentifierManager.shared().advertisingIdentifier)
-                case .denied:
-                    // Tracking authorization dialog was
-                    // shown and permission is denied
-                    print("Denied")
-                case .notDetermined:
-                    // Tracking authorization dialog has not been shown
-                    print("Not Determined")
-                case .restricted:
-                    print("Restricted")
-                @unknown default:
-                    print("Unknown")
-                }
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
-    
-
     
     public func updateLabels(score: String, level: String) {
         self.topHUD.updateBoxDataLabels(score: score, level: level)
