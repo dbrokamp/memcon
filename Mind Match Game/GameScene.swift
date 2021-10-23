@@ -4,6 +4,21 @@
 //
 //  Created by Drew Brokamp on 10/29/20.
 //["SFPro-Regular", "SFPro-Ultralight", "SFPro-Thin", "SFPro-Light", "SFPro-Medium", "SFPro-Semibold", "SFPro-Bold", "SFPro-Heavy", "SFPro-Black"]
+//  ----------------------------------------------------------------------------------------------
+//
+//
+//  GameScene manages:
+//      stateMachine
+//      cardManager
+//      gameManager
+//      HUDS
+//          topHUD
+//          bottomHUD
+//          menuHUD
+//          resultsHUD
+//
+//
+//  ----------------------------------------------------------------------------------------------
 /*
  
  GameScene initializes all the huds, objects, and labels
@@ -13,8 +28,6 @@
  */
 import SpriteKit
 import GameplayKit
-
-
 
 class GameScene: SKScene {
     
@@ -30,10 +43,6 @@ class GameScene: SKScene {
     // Menus
     var menuHUD: MenuHud
     var resultsHUD: ResultsHud
-    
-    //First Run
-    var firstRun: FirstRunHud?
-    
     
     //MARK: Init
     override init(size: CGSize) {

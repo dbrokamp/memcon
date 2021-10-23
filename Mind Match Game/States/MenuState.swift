@@ -6,7 +6,7 @@
 //
 
 /*
-    -   Show an intersitial ad if conditions are met
+
     -   Move center hud menu into view
     -
 

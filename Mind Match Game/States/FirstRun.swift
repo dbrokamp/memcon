@@ -5,6 +5,14 @@
 //  Created by Drew Brokamp on 12/8/20.
 //  Copyright © 2020 Drew Brokamp. All rights reserved.
 //
+//  ----------------------------------------------------------------------------------------------
+//
+//
+//  The stateMachine will enter this only if gameManager.firstRun == false
+//
+//
+//  ----------------------------------------------------------------------------------------------
+
 
 import GameplayKit
 
