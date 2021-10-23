@@ -127,9 +127,7 @@ class MatchState: GKState, CardSelected {
         let turnRed = Double(timer) * 0.25
         scene.topHUD.barTimer.removeFromParent()
         scene.topHUD.setupBarTimer(barColor: .auroraGreen, actionLabelText: "Match \(timer)")
-        
-        // Increase playAdCouter
-        scene.gameManager.playAdCounter += 1
+
         
         // Flip and enable all cards
         scene.cardManager.flipCardsFaceDown()

@@ -10,11 +10,6 @@ import GameplayKit
 
 class GameManager {
     
-    public var playAdCounter: Int {
-        didSet {
-            print("playAdCounter: \(playAdCounter)")
-        }
-    }
     public var score: Int {
         didSet {
             UserDefaults.standard.setValue(score, forKey: "score")
@@ -33,7 +28,6 @@ class GameManager {
     public var memorize: Int
     public var match: Int
     
-    public var isShowingBannerAd: Bool
     
     public var firstRun: Bool {
         didSet {
@@ -45,7 +39,7 @@ class GameManager {
         score = UserDefaults.standard.integer(forKey: "score")
         level = UserDefaults.standard.integer(forKey: "level")
         firstRun = UserDefaults.standard.bool(forKey: "firstRun")
-        playAdCounter = 0
+
         
         if level == 0 {
             level = 1
@@ -57,7 +51,7 @@ class GameManager {
         memorize = 16 - level
         match = 30 + memorize
         
-        isShowingBannerAd = false
+
         
     }
     

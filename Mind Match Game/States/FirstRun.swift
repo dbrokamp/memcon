@@ -7,8 +7,6 @@
 //
 
 import GameplayKit
-import AppTrackingTransparency
-import AdSupport
 
 class FirstRun: GKState, ButtonProtocol {
 

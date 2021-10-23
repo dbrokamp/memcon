@@ -7,18 +7,12 @@
 
 import SpriteKit
 
-let kBannerAdUnitID: String = "ca-app-pub-4493503969826620/2321437662"
-let kIntersitialAdUnitID: String = "ca-app-pub-4493503969826620/7164335697"
-let kTestBannerAdUnitID: String = "ca-app-pub-3940256099942544/2934735716"
-let kTestInterstitialAdUnitID: String = "ca-app-pub-3940256099942544/4411468910"
+
 
 extension Notification.Name {
     static let newGameSetupComplete = Notification.Name("newGameSetupComplete")
     static let memorizeCounterComplete = Notification.Name("memorizeCounterComplete")
     static let pauseGame = Notification.Name("pauseGame")
-    static let showInterstitialAd = Notification.Name("showInterstitialAd")
-    static let showBannerAd = Notification.Name("showBannerAd")
-    static let hideBannerAd = Notification.Name("hideBannerAd")
     static let stackCardsComplete = Notification.Name("stackCardsComplete")
     static let wonGame = Notification.Name("wonGame")
 

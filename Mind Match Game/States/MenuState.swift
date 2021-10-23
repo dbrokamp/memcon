@@ -31,28 +31,12 @@ class MenuState: GKState, ButtonProtocol {
         print("MenuState")
         
         scene.bottomHUD.run(SKAction.moveTo(y: self.scene.view!.frame.minY + scene.bottomHUD.frame.height / 2, duration: 1.0))
-        
-        
-        if scene.gameManager.isShowingBannerAd == false {
-            scene.run(SKAction.wait(forDuration: 1.0)) {
-                NotificationCenter.default.post(name: .showBannerAd, object: nil)
-                self.scene.gameManager.isShowingBannerAd = true
-            }
 
-        }
-
-
-        
         scene.updateLabels(score: "\(scene.gameManager.score)", level: "\(scene.gameManager.level)")
-        
-        if scene.gameManager.playAdCounter > 1 && scene.gameManager.playAdCounter % 3 == 0 {
-            NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
-        }
         
         scene.menu.setButtonDelegate(buttonDelegate: self)
         scene.menu.moveMenu(to: .onScreen)
         
-
         scene.cardManager.createArrayOfCards(scene: self.scene)
         scene.cardManager.createCardPositions(scene: self.scene)
         scene.cardManager.addCardsToCardScene(scene: self.scene)
@@ -72,10 +56,7 @@ class MenuState: GKState, ButtonProtocol {
             self.scene.menu.moveMenu(to: .offScreen)
             
             // Move the resultsHUD off the screen if a game has been played
-            if self.scene.gameManager.playAdCounter > 0 {
-                self.scene.results.run(SKAction.moveTo(x: self.scene.frame.maxX + self.scene.results.size.width / 2,
-                                                       duration: 1.0))
-            }
+
             
             // Enter the SetupState
             self.scene.run(SKAction.wait(forDuration: 1.2)) {
