@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
             
             
             
-            // Load the SKScene from 'GameScene.sks'
+            // Load the SKScene from 'GameScene.swift'
             let scene = GameScene(size: view.bounds.size)
             
             // Set the scale mode to scale to fit the window

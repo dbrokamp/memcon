@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class MenuHUD: SKSpriteNode {
+class MenuHud: SKSpriteNode {
     
     enum ViewPosition {
         case onScreen, offScreen

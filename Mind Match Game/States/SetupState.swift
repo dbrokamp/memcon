@@ -44,7 +44,7 @@ class SetupState: GKState, PositionCards {
     
     // Action to take when delegate message received that positioning cards is complete
     func positionCardsComplete(sender: CardManager) {
-        self.scene.stateMachine?.enter(MemorizeState.self)
+        self.scene.stateMachine.enter(MemorizeState.self)
     }
     
     // Actions to take when SetupState exits

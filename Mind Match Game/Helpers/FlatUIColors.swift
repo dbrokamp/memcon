@@ -66,6 +66,7 @@ extension UIColor {
     
     //British Palette flatuicolors.com
     static let lynxWhite = UIColor(red: 245/255, green: 246/255, blue: 250/255, alpha: 1.0)
-
+    static let nasturcianFlower = UIColor(red: 232/255, green: 65/255, blue: 24/255, alpha: 1.0)
+    static let hintOfPensive = UIColor(red: 220/255, green: 221/255, blue: 225/255, alpha: 1.0)
 
 }

@@ -15,7 +15,7 @@ class Card: SKSpriteNode {
     
     // Private properties
     private let flipCard = SKAction.sequence([SKAction.scale(to: 1.1, duration: 0.10), SKAction.scale(to: 1.0, duration: 0.10)])        // Scale up, then scale down to original
-    private var faceDownColor: UIColor = .forestBlues
+    private var faceDownColor: UIColor = .nasturcianFlower
     private var faceUpColor: UIColor = .lynxWhite//.dupain
     private var faceUpSymbol: SKSpriteNode!
     private var faceDownSymbol: SKSpriteNode!
@@ -83,7 +83,7 @@ class Card: SKSpriteNode {
                                             width: self.size.width,
                                             height: self.size.height),
                                cornerRadius: 3.0)
-        mask.strokeColor = UIColor(red: 10/255, green: 61/255, blue: 98/255, alpha: 1.0)
+        mask.strokeColor = .hintOfPensive
         mask.lineWidth = 2.3
         mask.fillColor = .clear
         self.addChild(mask)
