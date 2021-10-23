@@ -14,7 +14,7 @@
 
 import SpriteKit
 
-class Results: SKSpriteNode {
+class ResultsHud: SKSpriteNode {
     
     weak var gameScene: GameScene?
     private var background: SKShapeNode?
@@ -26,8 +26,7 @@ class Results: SKSpriteNode {
     private var sizeFactor: CGFloat = 0.15
     
     // MARK: Init
-    init(size: CGSize, inScene: GameScene) {
-        self.gameScene = inScene
+    init(size: CGSize) {
         
         super.init(texture: nil, color: .clear, size: size)
         self.name = "results"

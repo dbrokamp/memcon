@@ -23,7 +23,7 @@ class WonLevelState: GKState {
         
         scene.gameManager.level += 1
         
-        scene.results.setupResultsTitle(text: "Level Complete")
+        scene.resultsHUD.setupResultsTitle(text: "Level Complete")
         
         if scene.gameManager.level == 11 {
             NotificationCenter.default.post(name: .wonGame, object: nil)
@@ -46,7 +46,7 @@ class WonLevelState: GKState {
             }
             
             self.scene.run(SKAction.wait(forDuration: 4.0)) {
-                self.scene.stateMachine?.enter(MenuState.self)
+                self.scene.stateMachine.enter(MenuState.self)
             }
         }
         

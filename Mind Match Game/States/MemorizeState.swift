@@ -73,7 +73,7 @@ class MemorizeState: GKState {
             } else {
                 self.scene.removeAction(forKey: "countdown")
                 self.scene.topHUD.barTimer.removeFromParent()
-                self.scene.stateMachine?.enter(MatchState.self)
+                self.scene.stateMachine.enter(MatchState.self)
             }
         }
         

@@ -22,9 +22,9 @@ class LostLevelState: GKState {
         print("LostLevelState")
         
         // Set title for results menu
-        scene.results.setupResultsTitle(text: "Level Not Complete")
-        self.scene.results.setResultsDataLabels()
-        self.scene.results.run(SKAction.moveTo(x: self.scene.frame.maxX - self.scene.results.frame.width / 2 + 20.0, duration: 1.0))
+        scene.resultsHUD.setupResultsTitle(text: "Level Not Complete")
+        self.scene.resultsHUD.setResultsDataLabels()
+        self.scene.resultsHUD.run(SKAction.moveTo(x: self.scene.frame.maxX - self.scene.resultsHUD.frame.width / 2 + 20.0, duration: 1.0))
 
         
         // Disable all cards and flip them face up
@@ -47,7 +47,7 @@ class LostLevelState: GKState {
             
             
             self.scene.run(SKAction.wait(forDuration: 3.0)) {
-                self.scene.stateMachine?.enter(MenuState.self)
+                self.scene.stateMachine.enter(MenuState.self)
             }
         }
         

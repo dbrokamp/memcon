@@ -34,8 +34,8 @@ class MenuState: GKState, ButtonProtocol {
 
         scene.updateLabels(score: "\(scene.gameManager.score)", level: "\(scene.gameManager.level)")
         
-        scene.menu.setButtonDelegate(buttonDelegate: self)
-        scene.menu.moveMenu(to: .onScreen)
+        scene.menuHUD.setButtonDelegate(buttonDelegate: self)
+        scene.menuHUD.moveMenu(to: .onScreen)
         
         scene.cardManager.createArrayOfCards(scene: self.scene)
         scene.cardManager.createCardPositions(scene: self.scene)
@@ -53,14 +53,14 @@ class MenuState: GKState, ButtonProtocol {
         let block = SKAction.run {
             
             // Move the centerHUD off the screen
-            self.scene.menu.moveMenu(to: .offScreen)
+            self.scene.menuHUD.moveMenu(to: .offScreen)
             
             // Move the resultsHUD off the screen if a game has been played
 
             
             // Enter the SetupState
             self.scene.run(SKAction.wait(forDuration: 1.2)) {
-                self.scene.stateMachine?.enter(SetupState.self)
+                self.scene.stateMachine.enter(SetupState.self)
             }
         }
         

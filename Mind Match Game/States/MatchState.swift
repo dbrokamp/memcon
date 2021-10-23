@@ -76,7 +76,7 @@ class MatchState: GKState, CardSelected {
                             
                             self.scene.topHUD.barTimer.removeFromParent()
                             self.scene.removeAction(forKey: "countdown")
-                            self.scene.stateMachine?.enter(WonLevelState.self)
+                            self.scene.stateMachine.enter(WonLevelState.self)
                             
                         }
                     } else {
@@ -158,7 +158,7 @@ class MatchState: GKState, CardSelected {
                 
                 self.scene.removeAction(forKey: "countdown")
                 self.scene.topHUD.barTimer.removeFromParent()
-                self.scene.stateMachine?.enter(LostLevelState.self)
+                self.scene.stateMachine.enter(LostLevelState.self)
                 
             }
             
