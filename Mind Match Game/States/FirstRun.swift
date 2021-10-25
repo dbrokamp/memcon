@@ -9,6 +9,9 @@
 //
 //
 //  The stateMachine will enter this only if gameManager.firstRun == false
+//      - Moves through 4 slides describing the rules of the game and point system
+//
+//  Exits to the MenuState
 //
 //
 //  ----------------------------------------------------------------------------------------------
@@ -19,7 +22,7 @@ import GameplayKit
 class FirstRun: GKState, ButtonProtocol {
 
     private weak var scene: GameScene?
-    var firstRun: FirstRunHud
+    private var firstRun: FirstRunHud
     
     init(scene: GameScene) {
         self.scene = scene
@@ -29,6 +32,8 @@ class FirstRun: GKState, ButtonProtocol {
         firstRun.firstRunHudButton.delegate = self
     }
     
+    
+    // This state can only exit to the MenuState
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass == MenuState.self
     }
@@ -36,8 +41,10 @@ class FirstRun: GKState, ButtonProtocol {
     override func didEnter(from previousState: GKState?) {
         print("First Run State")
         
-
-        self.scene?.addChild(firstRun)
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
+        scene.addChild(firstRun)
         
     }
     

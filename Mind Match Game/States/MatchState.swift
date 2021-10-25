@@ -10,7 +10,7 @@ import GameplayKit
 class MatchState: GKState, CardSelected {
     
     
-    private var scene: GameScene
+    private weak var scene: GameScene?
     
     var firstCard: Card?
     var secondCard: Card?
@@ -24,6 +24,9 @@ class MatchState: GKState, CardSelected {
     override func didEnter(from previousState: GKState?) {
         print("MatchState")
         
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
         scene.gameManager.resetGameVariables()
         
         // Make this state the CardSelected protocol class delegate for each card
@@ -35,6 +38,9 @@ class MatchState: GKState, CardSelected {
     }
     
     public func cardSelected(sender: Card) {
+        
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
         
         if firstCard == nil {
             
@@ -58,9 +64,9 @@ class MatchState: GKState, CardSelected {
                 if firstCard?.identifier == secondCard?.identifier {
                     print("match made!")
                     // increase score, remove cards
-                    self.scene.gameManager.numberOfMatchesMade += 1
+                    scene.gameManager.numberOfMatchesMade += 1
                     
-                    self.scene.run(SKAction.wait(forDuration: 0.25)) {
+                    scene.run(SKAction.wait(forDuration: 0.25)) {
                         
                         self.firstCard?.removeFromParent()
                         self.secondCard?.removeFromParent()
@@ -68,34 +74,34 @@ class MatchState: GKState, CardSelected {
                         self.secondCard = nil
                     }
                     
-                    if self.scene.gameManager.numberOfMatchesMade == self.scene.gameManager.numberOfMatchesPossible {
+                    if scene.gameManager.numberOfMatchesMade == scene.gameManager.numberOfMatchesPossible {
                         
                         print("Level Won")
                         
-                        self.scene.run(SKAction.wait(forDuration: 0.25)) {
+                        scene.run(SKAction.wait(forDuration: 0.25)) {
                             
-                            self.scene.topHUD.barTimer.removeFromParent()
-                            self.scene.removeAction(forKey: "countdown")
-                            self.scene.stateMachine.enter(WonLevelState.self)
+                            scene.topHUD.barTimer.removeFromParent()
+                            scene.removeAction(forKey: "countdown")
+                            scene.stateMachine.enter(WonLevelState.self)
                             
                         }
                     } else {
                         
-                        self.scene.cardManager.enableAllCards()
+                        scene.cardManager.enableAllCards()
                         
                     }
                     
                 } else if firstCard?.identifier != secondCard?.identifier {
                     
-                    self.scene.run(SKAction.wait(forDuration: 0.25)) {
+                    scene.run(SKAction.wait(forDuration: 0.25)) {
                         
                         print("not a match")
-                        self.scene.gameManager.numberOfIncorrectMatches += 1
+                        scene.gameManager.numberOfIncorrectMatches += 1
                         self.firstCard?.flipCardFaceDown()
                         self.secondCard?.flipCardFaceDown()
                         self.firstCard = nil
                         self.secondCard = nil
-                        self.scene.cardManager.enableAllCards()
+                        scene.cardManager.enableAllCards()
                         
                     }
                 }
@@ -110,6 +116,10 @@ class MatchState: GKState, CardSelected {
     }
     
     override func willExit(to nextState: GKState) {
+        
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
         // Save the game
         scene.gameManager.saveGame()
         scene.gameManager.calculateLevelPoints()
@@ -122,7 +132,10 @@ class MatchState: GKState, CardSelected {
     
     private func matchCountDown() {
         
-        var timer = scene.gameManager.match
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
+        var timer = scene.gameManager.matchTimer
         let turnYellow = Double(timer) * 0.50
         let turnRed = Double(timer) * 0.25
         scene.topHUD.barTimer.removeFromParent()
@@ -136,29 +149,28 @@ class MatchState: GKState, CardSelected {
         let wait = SKAction.wait(forDuration: 1.0)
         
         let block = SKAction.run {
-            [unowned self] in
-            
+  
             if timer > 0  {
                 timer -= 1
                 
                 if timer <= Int(turnYellow) {
-                    self.scene.topHUD.barTimer.changeTimerBarColor(newColor: .squashBlossom)
+                    scene.topHUD.barTimer.changeTimerBarColor(newColor: .squashBlossom)
                 }
                 
                 if timer <= Int(turnRed) {
-                    self.scene.topHUD.barTimer.changeTimerBarColor(newColor: .mandarinRed)
+                    scene.topHUD.barTimer.changeTimerBarColor(newColor: .mandarinRed)
                 }
                 
-                scene.topHUD.barTimer.decreaseTimerBar(currentWidth: self.scene.topHUD.barTimer.size.width,
-                                                hudDecreaseBy: self.scene.topHUD.barTimer.size.width / CGFloat(timer),
+                scene.topHUD.barTimer.decreaseTimerBar(currentWidth: scene.topHUD.barTimer.size.width,
+                                                hudDecreaseBy: scene.topHUD.barTimer.size.width / CGFloat(timer),
                                                 decreaseDuration: 1.0)
                 scene.topHUD.barTimer.changeActionLabel(newText: "Match: \(timer)")
                 
             } else {
                 
-                self.scene.removeAction(forKey: "countdown")
-                self.scene.topHUD.barTimer.removeFromParent()
-                self.scene.stateMachine.enter(LostLevelState.self)
+                scene.removeAction(forKey: "countdown")
+                scene.topHUD.barTimer.removeFromParent()
+                scene.stateMachine.enter(LostLevelState.self)
                 
             }
             
@@ -167,7 +179,7 @@ class MatchState: GKState, CardSelected {
         
         let sequence = SKAction.sequence([wait,block])
         
-        self.scene.run(SKAction.repeatForever(sequence), withKey: "countdown")
+        scene.run(SKAction.repeatForever(sequence), withKey: "countdown")
         
     }
 }

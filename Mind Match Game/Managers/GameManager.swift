@@ -24,9 +24,11 @@ class GameManager {
     public var numberOfMatchesMade: Int = 0
     public var numberOfMatchesPossible: Int = 15
     public var numberOfIncorrectMatches: Int = 0
+    
     public var levelPointsCalc: Float = 0
-    public var memorize: Int
-    public var match: Int
+    
+    public var memorizeTimer: Int
+    public var matchTimer: Int
     
     
     public var firstRun: Bool {
@@ -44,12 +46,10 @@ class GameManager {
         if level == 0 {
             level = 1
         }
-        
-        print(firstRun)
-        
+                
         // MARK: Debug Times
-        memorize = 16 - level
-        match = 30 + memorize
+        memorizeTimer = 16 - level
+        matchTimer = 30 + memorizeTimer
         
 
         
@@ -91,9 +91,9 @@ class GameManager {
         } else if numberOfMatchesMade == numberOfMatchesPossible && numberOfIncorrectMatches > numberOfMatchesMade {
             
         }
+        
         score = score + Int(levelPointsCalc)
         
-
     }
     
     

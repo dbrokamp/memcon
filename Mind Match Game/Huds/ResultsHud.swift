@@ -49,7 +49,7 @@ class ResultsHud: SKSpriteNode {
         possibleMatchesBox?.setDataLabelText(text: "\(self.gameScene?.gameManager.numberOfMatchesPossible ?? 0)")
         matchesMade?.setDataLabelText(text: "\(self.gameScene?.gameManager.numberOfMatchesMade ?? 0)")
         incorrectMatches?.setDataLabelText(text: "\(self.gameScene?.gameManager.numberOfIncorrectMatches ?? 0)")
-        totalPoints?.setDataLabelText(text: "\(Int(self.gameScene!.gameManager.levelPointsCalc))")
+        totalPoints?.setDataLabelText(text: "\(Int(self.gameScene?.gameManager.levelPointsCalc ?? 0))")
     }
     
     private func setupBackground() {

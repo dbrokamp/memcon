@@ -19,13 +19,7 @@
 //
 //
 //  ----------------------------------------------------------------------------------------------
-/*
- 
- GameScene initializes all the huds, objects, and labels
- 
- Use the Game States to change screen objects
- 
- */
+
 import SpriteKit
 import GameplayKit
 
@@ -86,7 +80,6 @@ class GameScene: SKScene {
         NotificationCenter.default.addObserver(self, selector: #selector(pauseGame), name: NSNotification.Name.pauseGame, object: nil)
         
         // Set positions of MenuHud
-
         menuHUD.setOnAndOffScreenMenuPositions(onScreen: CGPoint(x: frame.minX + menuHUD.frame.width / 2 - 20.0,
                                                               y: frame.midY + menuHUD.frame.height),
                                             offScreen: CGPoint(x: frame.minX - menuHUD.frame.width / 2,

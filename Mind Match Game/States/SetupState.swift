@@ -5,16 +5,24 @@
 //  Created by Drew Brokamp on 10/29/20.
 //
 //
-/*
- 1. pulls down topHud
- 2. moves cards into position
- 3. Sends notification once setup in complete to move to MemorizeState
- */
+//  ----------------------------------------------------------------------------------------------
+//
+//
+//  This state sets up the game by:
+//      - Resetting the timer bar and pulling down the topHUD
+//      - Moves the cards into the grid positions
+//
+//  Exits to MemorizeState
+//
+//
+//  ----------------------------------------------------------------------------------------------
+
+
 import GameplayKit
 
 class SetupState: GKState, PositionCards {
 
-    var scene: GameScene
+    private weak var scene: GameScene?
     
     //MARK: INIT
     init(scene: GameScene) {
@@ -27,6 +35,12 @@ class SetupState: GKState, PositionCards {
     override func didEnter(from previousState: GKState?) {
         print("SetupState")
         
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
+        // Move the centerHUD off the screen
+        scene.menuHUD.moveMenu(to: .offScreen)
+        
         // Remove and add timer bar to reset it
         scene.topHUD.barTimer.removeFromParent()
         scene.topHUD.setupBarTimer(barColor: .auroraGreen, actionLabelText: "Memorize: ")
@@ -38,17 +52,25 @@ class SetupState: GKState, PositionCards {
         scene.topHUD.run(SKAction.moveTo(y: scene.frame.maxY - scene.topHUD.frame.height / 2, duration: 1.0))
         
         // Shuffle the card positions and move the cards into the grid
-        scene.cardManager.positionCardsInGrid(inScene: self.scene)
+        scene.cardManager.positionCardsInGrid(inScene: scene)
         
     }
     
     // Action to take when delegate message received that positioning cards is complete
     func positionCardsComplete(sender: CardManager) {
-        self.scene.stateMachine.enter(MemorizeState.self)
+        
+        // Safely check to see if scene is loaded, else fatalError
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
+        scene.stateMachine.enter(MemorizeState.self)
+        
     }
     
     // Actions to take when SetupState exits
     override func willExit(to nextState: GKState) {
+        
+        guard let scene = scene else { fatalError("The scene did not load!") }
+        
         // Save the game
         scene.gameManager.saveGame()
 
