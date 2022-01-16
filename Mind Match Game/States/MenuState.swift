@@ -65,8 +65,7 @@ class MenuState: GKState, ButtonProtocol {
         
         let block = SKAction.run {
             
-            // Enter the SetupState after 1.2 seconds
-            scene.run(SKAction.wait(forDuration: 1.2)) {
+            scene.run(SKAction.wait(forDuration: 0.1)) {
                 
                 scene.stateMachine.enter(SetupState.self)
                 

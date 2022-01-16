@@ -36,6 +36,7 @@
 		666F8900256C053800D6E092 /* ResultsHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F88FF256C053800D6E092 /* ResultsHud.swift */; };
 		66A5105B256D7A9900DC0EF6 /* TopHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A5105A256D7A9900DC0EF6 /* TopHud.swift */; };
 		66B7C3812575579B0002C929 /* FirstRunHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7C3802575579B0002C929 /* FirstRunHud.swift */; };
+		66E6BD212728D87E00F91CCF /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6BD202728D87E00F91CCF /* Hud.swift */; };
 		66EA3D982549CCBC00BD7EB4 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66EA3D972549CCBC00BD7EB4 /* SF-Pro.ttf */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		66A5105A256D7A9900DC0EF6 /* TopHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHud.swift; sourceTree = "<group>"; };
 		66B704A7247164C90060AA71 /* Mind Match Game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mind Match Game.entitlements"; sourceTree = "<group>"; };
 		66B7C3802575579B0002C929 /* FirstRunHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunHud.swift; sourceTree = "<group>"; };
+		66E6BD202728D87E00F91CCF /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		66EA3D972549CCBC00BD7EB4 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 		66330EAF25508ECD009D39E4 /* View Objects */ = {
 			isa = PBXGroup;
 			children = (
+				66E6BD202728D87E00F91CCF /* Hud.swift */,
 				66330E9D25508E8C009D39E4 /* Card.swift */,
 				66330EAC25508EB8009D39E4 /* Timer.swift */,
 				66330EA025508E96009D39E4 /* Button.swift */,
@@ -273,6 +276,7 @@
 				665CD5DD255AED7000FDBFF5 /* HudBox.swift in Sources */,
 				66330E6C25508D8E009D39E4 /* Globals.swift in Sources */,
 				66330E7325508DC0009D39E4 /* GameManager.swift in Sources */,
+				66E6BD212728D87E00F91CCF /* Hud.swift in Sources */,
 				66330EB525508EED009D39E4 /* SetupState.swift in Sources */,
 				66330E9E25508E8C009D39E4 /* Card.swift in Sources */,
 				66330EAD25508EB8009D39E4 /* Timer.swift in Sources */,

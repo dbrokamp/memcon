@@ -14,7 +14,7 @@
 
 import SpriteKit
 
-class ResultsHud: SKSpriteNode {
+class ResultsHud: MenuHud {
     
     weak var gameScene: GameScene?
     private var background: SKShapeNode?
@@ -26,9 +26,9 @@ class ResultsHud: SKSpriteNode {
     private var sizeFactor: CGFloat = 0.15
     
     // MARK: Init
-    init(size: CGSize) {
+    override init(size: CGSize) {
         
-        super.init(texture: nil, color: .clear, size: size)
+        super.init(size: size)
         self.name = "results"
         self.zPosition = ViewZPositions.hud
         setupBackground()

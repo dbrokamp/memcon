@@ -18,8 +18,8 @@ class MenuHud: SKSpriteNode {
     private var actionButton: Button!
     private var scoreBox: HudBox!
     private var levelBox: HudBox!
-    private var offScreenPosition: CGPoint!
-    private var onScreenPosition: CGPoint!
+    public var offScreenPosition: CGPoint!
+    public var onScreenPosition: CGPoint!
     
     init(size: CGSize) {
         

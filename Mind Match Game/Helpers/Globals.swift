@@ -42,6 +42,31 @@ enum ViewZPositions {
     
 }
 
+enum Globals {
+    enum HudBackground {
+        static let cornerRadius: CGFloat = 20.0
+        static let lineWidth: CGFloat = 0.0
+        static let transparency: CGFloat = 0.75
+    }
+    
+    enum ViewZPositions {
+        static let background: CGFloat = 1.0
+        static let cards: CGFloat = 2.0
+        static let symbols: CGFloat = 2.5
+        static let hud: CGFloat = 3.0
+        static let hudBackground: CGFloat = 5.0
+        static let hudObject: CGFloat = 6.0
+        static let hudBox: CGFloat = 7.0
+        static let hudLabel: CGFloat = 8.0
+        
+        static let firstRunHud: CGFloat = 10.0
+        static let firstRunHudBackground: CGFloat = 11.0
+        static let firstRunHudLabel: CGFloat = 12.0
+        
+    }
+
+}
+
 enum FontSizes {
     static let hudLabel: CGFloat = 17.0
     static let button: CGFloat = 17.0

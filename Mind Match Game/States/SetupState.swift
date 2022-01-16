@@ -41,6 +41,8 @@ class SetupState: GKState, PositionCards {
         // Move the centerHUD off the screen
         scene.menuHUD.moveMenu(to: .offScreen)
         
+        // TODO: If the resultsHud exists, move it off screen
+        
         // Remove and add timer bar to reset it
         scene.topHUD.barTimer.removeFromParent()
         scene.topHUD.setupBarTimer(barColor: .auroraGreen, actionLabelText: "Memorize: ")
