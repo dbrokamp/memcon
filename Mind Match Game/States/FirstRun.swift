@@ -61,7 +61,6 @@ class FirstRun: GKState, ButtonProtocol {
                 scene?.stateMachine.enter(MenuState.self)
                 
             }
-            //                self.gameManager.firstRun = true
         } else {
             print("No button pressed")
         }

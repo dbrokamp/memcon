@@ -21,10 +21,8 @@ class LostLevelState: GKState {
     override func didEnter(from previousState: GKState?) {
         print("LostLevelState")
         
-        // Set title for results menu
-        scene.resultsHUD.setupResultsTitle(text: "Level Not Complete")
-        self.scene.resultsHUD.setResultsDataLabels()
-        self.scene.resultsHUD.run(SKAction.moveTo(x: self.scene.frame.maxX - self.scene.resultsHUD.frame.width / 2 + 20.0, duration: 1.0))
+        setResultsHud()
+
 
         
         // Disable all cards and flip them face up
@@ -55,11 +53,15 @@ class LostLevelState: GKState {
         
     }
     
+    private func setResultsHud() {
+        scene.resultsHUD.setupResultsTitle(text: "Level Not Complete")
+        self.scene.resultsHUD.setResultsDataLabels()
+        self.scene.resultsHUD.moveMenu(to: .onScreen)
+    }
+    
     private func stackCards() {
         
-        
         var counter = scene.cardManager.cards.count
-        
         let wait = SKAction.wait(forDuration: 0.05)
         
         let block = SKAction.run {
@@ -67,7 +69,7 @@ class LostLevelState: GKState {
             
             if counter > 0  {
                 counter -= 1
-                self.scene.cardManager.cards[counter].run(SKAction.move(to: CGPoint(x: scene.frame.midX,
+                self.scene.cardManager.cards[counter].run(SKAction.move(to: CGPoint(x: scene.frame.maxX + self.scene.cardManager.getCardSize().width,
                                                                                     y: scene.frame.midY), duration: 0.5))
                 
                 

@@ -48,8 +48,8 @@ class GameManager {
         }
                 
         // MARK: Debug Times
-        memorizeTimer = 16 - level
-        matchTimer = 30 + memorizeTimer
+        memorizeTimer = 5 //16 - level
+        matchTimer = 5 //30 + memorizeTimer
         
 
         

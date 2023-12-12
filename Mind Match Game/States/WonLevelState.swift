@@ -24,6 +24,7 @@ class WonLevelState: GKState {
         scene.gameManager.level += 1
         
         scene.resultsHUD.setupResultsTitle(text: "Level Complete")
+        scene.resultsHUD.moveMenu(to: .onScreen)
         
         if scene.gameManager.level == 11 {
             NotificationCenter.default.post(name: .wonGame, object: nil)

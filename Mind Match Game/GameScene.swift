@@ -47,7 +47,7 @@ class GameScene: SKScene {
         gameManager = GameManager()
         
         // Initialize HUDs
-        topHUD = TopHud(size: CGSize(width: size.width, height: size.height * 0.12))
+        topHUD = TopHud(size: CGSize(width: size.width, height: size.height * 0.15))
         bottomHUD = BottomHud(size: CGSize(width: size.width, height: size.height * 0.12))
         menuHUD = MenuHud(size: CGSize(width: size.width / 1.5, height: size.height * 0.25))
         resultsHUD = ResultsHud(size: CGSize(width: size.width / 1.5,
@@ -97,8 +97,11 @@ class GameScene: SKScene {
         
         
         // Setup position and size of results hud
-        resultsHUD.position = CGPoint(x: frame.maxX + resultsHUD.size.width / 2,
-                                   y: (frame.midY - frame.minY) / 1.75)
+        resultsHUD.setOnAndOffScreenMenuPositions(onScreen: CGPoint(x: frame.maxX - resultsHUD.frame.width / 2 + 20.0,
+                                                                    y: (frame.midY - frame.minY) / 1.75),
+                                                  offScreen: CGPoint(x: frame.maxX + resultsHUD.size.width / 2,
+                                                                     y: (frame.midY - frame.minY) / 1.75))
+        resultsHUD.setInitialPosition(at: .offScreen)
         addChild(resultsHUD)
 
 

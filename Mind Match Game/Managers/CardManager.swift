@@ -28,6 +28,10 @@ class CardManager {
         
     }
     
+    public func getCardSize() -> CGSize {
+        return cardSize
+    }
+    
     public func disableAllCards() {
         for card in cards {
             card.isUserInteractionEnabled = false
@@ -132,7 +136,7 @@ class CardManager {
         
         
         let startingXPosition = scene.frame.midX - (cardSize.width / 2) - 10 - cardSize.width - 10 - (cardSize.width / 2)
-        let startingYPosition = scene.frame.midY - (cardSize.height / 2) - 10 - cardSize.height - 10 - cardSize.height
+        let startingYPosition = scene.frame.midY - (cardSize.height / 2) - 10 - cardSize.height - 10 - cardSize.height - 15
         var rowCounter = 0
         var columnCounter = 0
         var xPosition = startingXPosition

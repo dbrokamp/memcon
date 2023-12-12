@@ -14,7 +14,11 @@
 
 import SpriteKit
 
-class ResultsHud: MenuHud {
+class ResultsHud: SKSpriteNode {
+    
+    enum ViewPosition {
+        case onScreen, offScreen
+    }
     
     weak var gameScene: GameScene?
     private var background: SKShapeNode?
@@ -25,10 +29,13 @@ class ResultsHud: MenuHud {
     private var totalPoints: HudBox?
     private var sizeFactor: CGFloat = 0.15
     
+    public var offScreenPosition: CGPoint!
+    public var onScreenPosition: CGPoint!
+    
     // MARK: Init
-    override init(size: CGSize) {
+    init(size: CGSize) {
         
-        super.init(size: size)
+        super.init(texture: nil, color: .clear, size: size)
         self.name = "results"
         self.zPosition = ViewZPositions.hud
         setupBackground()
@@ -36,6 +43,30 @@ class ResultsHud: MenuHud {
         setupMatchesMadeBox()
         setupIncorrectMatchesMadeBox()
         setupTotalPointsBox()
+    }
+    
+    public func moveMenu(to: ViewPosition) {
+        switch to {
+        case .onScreen:
+            self.run(SKAction.move(to: onScreenPosition, duration: 1.0))
+        case .offScreen:
+            self.run(SKAction.move(to: offScreenPosition, duration: 1.0))
+        }
+        
+    }
+    
+    public func setInitialPosition(at: ViewPosition) {
+        switch at {
+        case .onScreen:
+            self.position = onScreenPosition
+        case .offScreen:
+            self.position = offScreenPosition
+        }
+    }
+    
+    public func setOnAndOffScreenMenuPositions(onScreen: CGPoint, offScreen: CGPoint) {
+        onScreenPosition = onScreen
+        offScreenPosition = offScreen
     }
     
     public func setupResultsTitle(text: String) {

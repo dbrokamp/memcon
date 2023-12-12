@@ -80,6 +80,7 @@ class MenuState: GKState, ButtonProtocol {
         
         // Save the game
         guard let scene  = scene else { return }
+        scene.resultsHUD.moveMenu(to: .offScreen)
         scene.gameManager.saveGame()
         
         
